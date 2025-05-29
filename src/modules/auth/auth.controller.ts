@@ -56,7 +56,7 @@ export class AuthController {
     async (req: Request, res: Response, next: NextFunction): Promise<any> => {
       const refreshToken = req.cookies.refreshToken as string | undefined;
       if (!refreshToken) {
-        throw new UnAuthorizedException('User not authorized');
+        throw new UnAuthorizedException('Missing refresh token');
       }
       const { accessToken, newRefreshToken } =
         await this.authService.refreshToken(refreshToken);
