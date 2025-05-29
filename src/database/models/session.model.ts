@@ -4,8 +4,8 @@ import { thirtyDaysFromNow } from '../../common/utils/date-time';
 export interface SessionDocument extends Document {
   userId: mongoose.Types.ObjectId;
   userAgent?: string;
-  createdAt?: Date;
-  expireAt?: Date;
+  createdAt: Date;
+  expiredAt: Date;
 }
 
 const sessionSchema = new Schema<SessionDocument>({
@@ -16,8 +16,8 @@ const sessionSchema = new Schema<SessionDocument>({
     required: true,
   },
   userAgent: { type: String, required: false },
-  createdAt: { type: Date, required: false, default: Date.now },
-  expireAt: { type: Date, required: false, default: thirtyDaysFromNow() },
+  createdAt: { type: Date, default: Date.now },
+  expiredAt: { type: Date, required: true, default: thirtyDaysFromNow() },
 });
 
 const SessionModel = mongoose.model<SessionDocument>('Session', sessionSchema);

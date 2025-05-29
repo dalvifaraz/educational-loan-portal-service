@@ -17,7 +17,7 @@ export const errorHandler: ErrorRequestHandler = (
   console.log(
     chalk.red(`\n🔴 Error occurred on PATH: ${req.path}`),
     `\nMessage: ${error.message}`,
-    `\nStack:\n${error.stack}\n`,
+    `\nStack:\n${error.stack?.split('\n').slice(0, 4).join('\n')}\n`,
   );
 
   if (req.path === REFRESH_BASE_PATH) {

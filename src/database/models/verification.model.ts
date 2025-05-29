@@ -7,8 +7,8 @@ interface VerificationCodeDocument extends Document {
   userId: mongoose.Types.ObjectId;
   code: string;
   type: VerificationEnum;
-  createdAt?: Date;
-  expireAt?: Date;
+  createdAt: Date;
+  expiresAt: Date;
 }
 
 const verificationCodeSchema = new Schema<VerificationCodeDocument>({
@@ -25,8 +25,8 @@ const verificationCodeSchema = new Schema<VerificationCodeDocument>({
     default: generateUniqueCode,
   },
   type: { type: String, required: true },
-  createdAt: { type: Date, required: false, default: Date.now },
-  expireAt: { type: Date, required: false },
+  createdAt: { type: Date, required: true, default: Date.now },
+  expiresAt: { type: Date, required: true },
 });
 
 const VerificationCodeModel = mongoose.model<VerificationCodeDocument>(
