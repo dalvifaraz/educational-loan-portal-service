@@ -55,23 +55,23 @@ export class AuthController {
   public refreshToken = asyncHandler(
     async (req: Request, res: Response, next: NextFunction): Promise<any> => {
       const refreshToken = req.cookies.refreshToken as string | undefined;
-      if (refreshToken) {
+      if (!refreshToken) {
         throw new UnAuthorizedException('User not authorized');
       }
-      // const { accessToken, newRefreshToken } =
-      //   await this.authService.refreshToken(refreshToken);
+      const { accessToken, newRefreshToken } =
+        await this.authService.refreshToken(refreshToken);
 
-      // if (newRefreshToken) {
-      //   res.cookie(
-      //     'refreshToken',
-      //     newRefreshToken,
-      //     getRefreshTokenCookieOptions(),
-      //   );
-      // }
-      // res
-      //   .status(HTTPSTATUS.OK)
-      //   .cookie('accessToken', accessToken, getAccessTokenCookieOptions())
-      //   .json({ message: 'Refresh access token successfully' });
+      if (newRefreshToken) {
+        res.cookie(
+          'refreshToken',
+          newRefreshToken,
+          getRefreshTokenCookieOptions(),
+        );
+      }
+      res
+        .status(HTTPSTATUS.OK)
+        .cookie('accessToken', accessToken, getAccessTokenCookieOptions())
+        .json({ message: 'Refresh access token successfully' });
     },
   );
 }
