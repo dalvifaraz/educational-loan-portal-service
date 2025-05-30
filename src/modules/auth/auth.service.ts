@@ -127,4 +127,32 @@ export class AuthService {
     });
     return { accessToken, newRefreshToken };
   }
+
+  public async verifyEmail(code: string) {
+    const validCode = await VerificationCodeModel.findOne({
+      code: code,
+      type: VerificationEnum.EMAIL_VERIFICATION,
+      expiresAt: { $gt: new Date() },
+    });
+    if (!validCode) {
+      throw new BadRequestException('Invalid or expired verification');
+    }
+    const updatedUser = await UserModel.findOneAndUpdate(
+      validCode.userId,
+      {
+        isEmailVerified: true,
+      },
+      { new: true },
+    );
+    if (!updatedUser) {
+      throw new BadRequestException(
+        'Unable to verify email address',
+        ErrorCode.VALIDATION_ERROR,
+      );
+    }
+    await validCode.deleteOne();
+    return {
+      user: updatedUser,
+    };
+  }
 }
