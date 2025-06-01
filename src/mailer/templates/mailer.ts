@@ -20,7 +20,7 @@ export const sendMail = async ({
   text,
   html,
   from = mailer_sender,
-}: Params) => {
+}: Params) =>
   await resend.emails.send({
     from,
     to: Array.isArray(to) ? to : [to],
@@ -28,4 +28,3 @@ export const sendMail = async ({
     subject,
     html,
   });
-};
