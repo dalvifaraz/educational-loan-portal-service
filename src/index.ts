@@ -8,7 +8,7 @@ import connectToDatabase from './database/mongodb';
 import { errorHandler } from './middlewares/errorHandler';
 import { HTTPSTATUS, HttpStatusCode } from './config/http.config';
 import authRoute from './modules/auth/auth.routes';
-
+import passport from './middlewares/passport';
 const app = express();
 const BASE_PATH = config.BASE_PATH;
 
@@ -22,6 +22,7 @@ app.use(
 );
 
 app.use(cookieParser());
+app.use(passport.initialize());
 
 app.get('/', (req: Request, res: Response) => {
   console.log(BASE_PATH);
