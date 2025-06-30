@@ -7,4 +7,14 @@ export class UserService {
     });
     return user || null;
   }
+
+  public async findUserByEmail(email: string) {
+    const user = await UserModel.findOne(
+      { email },
+      {
+        password: false,
+      },
+    );
+    return user || null;
+  }
 }

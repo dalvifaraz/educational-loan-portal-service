@@ -9,6 +9,7 @@ import { errorHandler } from './middlewares/errorHandler';
 import { HTTPSTATUS, HttpStatusCode } from './config/http.config';
 import authRoute from './modules/auth/auth.routes';
 import passport from './middlewares/passport';
+import userRoute from './modules/user/user.routes';
 const app = express();
 const BASE_PATH = config.BASE_PATH;
 
@@ -30,6 +31,7 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 app.use(`${BASE_PATH}/auth`, authRoute);
+app.use(`${BASE_PATH}/user`, userRoute);
 
 app.use(errorHandler);
 

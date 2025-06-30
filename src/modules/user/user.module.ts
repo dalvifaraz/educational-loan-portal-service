@@ -1,5 +1,8 @@
+import { UserController } from './user.controller';
 import { UserService } from './user.service';
 
 const userService = new UserService();
 
-export { userService };
+const userController = new UserController(userService);
+
+export { userService, userController };
