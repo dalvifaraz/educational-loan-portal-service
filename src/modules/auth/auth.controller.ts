@@ -20,7 +20,6 @@ import {
   NotFoundException,
   UnAuthorizedException,
 } from '../../common/utils/catch-error';
-import { session } from 'passport';
 
 export class AuthController {
   public authService: AuthService;
