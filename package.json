@@ -10,8 +10,8 @@
     "start": "node dist/index.js"
   },
   "author": {
-    "name": "Hamza Shaikh",
-    "email": "shaikh.hamza1199@gmail.com"
+    "name": "Faraz Dalvi",
+    "email": "dalvifaraz@gmail.com"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
