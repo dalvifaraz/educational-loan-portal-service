@@ -1,5 +1,5 @@
 # Ignore node_modules
-node_modules/
+/node_modules/
 
 # Ignore logs
 npm-debug.log
@@ -13,3 +13,4 @@ yarn-error.log
 # Ignore build artifacts or any compiled files (if you use TypeScript or other compilers)
 build/
 dist/
+logs/
