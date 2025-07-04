@@ -10,7 +10,6 @@ export const registerSchema = z
     email: emailSchema,
     password: passwordSchema,
     confirmPassword: passwordSchema,
-    role: z.enum(['user', 'admin']),
   })
   .refine(val => val.password === val.confirmPassword, {
     message: 'Password do not match',

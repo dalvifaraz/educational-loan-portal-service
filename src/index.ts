@@ -12,6 +12,8 @@ import passport from './middlewares/passport';
 import userRoute from './modules/user/user.routes';
 import logger from './common/utils/logger';
 import requestLogger from './middlewares/requestLogger';
+import sessionRoutes from './modules/session/session.routes';
+import { authenticateJWT } from './common/strategies/jwt.strategy';
 
 const app = express();
 const BASE_PATH = config.BASE_PATH;
@@ -34,6 +36,7 @@ app.get('/', (req: Request, res: Response) => {
 
 app.use(`${BASE_PATH}/auth`, authRoute);
 app.use(`${BASE_PATH}/user`, userRoute);
+app.use(`${BASE_PATH}/session`, authenticateJWT, sessionRoutes);
 
 app.use(errorHandler);
 
