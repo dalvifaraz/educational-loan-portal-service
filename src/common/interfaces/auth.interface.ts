@@ -3,7 +3,6 @@ export interface RegisterDto {
   email: string;
   password: string;
   confirmPassword: string;
-  role?: string;
 }
 
 export interface LoginDto {
