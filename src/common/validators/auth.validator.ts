@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 export const emailSchema = z.string().trim().email().min(1).max(255);
 export const passwordSchema = z.string().trim().min(1).max(255);
-export const verificationCodeSchema = z.string().trim().min(1).max(255);
+export const verificationCodeSchema = z.string().trim().min(1).max(10);
 
 export const registerSchema = z
   .object({
@@ -10,6 +10,7 @@ export const registerSchema = z
     email: emailSchema,
     password: passwordSchema,
     confirmPassword: passwordSchema,
+    role: z.enum(['user', 'admin']),
   })
   .refine(val => val.password === val.confirmPassword, {
     message: 'Password do not match',
