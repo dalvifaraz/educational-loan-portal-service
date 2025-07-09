@@ -1,18 +1,41 @@
-# 🧱 Backend Blueprint (TypeScript + Node + Express)
+# 🎓 Educational Loan Portal Service
 
-A scalable and modular backend boilerplate built with TypeScript, Node.js, and Express. Includes production-ready features like Redis-backed rate limiting using Arject, JWT auth, and Docker support.
+A backend service for managing educational loan applications, user authentication, and related workflows. Built with TypeScript, Node.js, and Express. Includes production-ready features such as JWT authentication, Redis-backed rate limiting using Arject, and Docker support.
 
 ---
 
 ## 🚀 Features
 
-- ⚙️ **TypeScript-first setup**
-- 🧱 **Modular file structure**
-- 🔐 **JWT-based authentication**
-- 🌿 **Environment-based configuration**
-- 🧊 **Redis integration (via ioredis)**
-- 🚦 **Rate limiting using Arject**
-- 📄 **RESTful API structure**
-- 🧪 **Jest + Supertest for testing**
-- 🧹 **ESLint + Prettier**
-- 📊 **Centralized logging and error handling**
+- ⚙️ **TypeScript-first development**
+- 🏗️ **Scalable modular architecture**
+- 🔐 **JWT-based user authentication**
+- 🌱 **Environment-specific configuration**
+- 🧊 **Redis integration via ioredis**
+- 🚦 **Request rate limiting with Arject**
+- 📄 **RESTful API endpoints**
+- 🧪 **Testing with Jest and Supertest**
+- 🧹 **Code quality via ESLint and Prettier**
+- 📊 **Centralized logging and error management**
+
+---
+
+## 📦 Tech Stack
+
+- **Node.js**
+- **Express.js**
+- **TypeScript**
+- **JWT**
+- **Redis (ioredis)**
+- **Arject (rate limiting)**
+- **Docker**
+- **Jest + Supertest**
+
+---
+
+## 🛠️ Getting Started
+
+### Prerequisites
+
+- Node.js (v18+ recommended)
+- Redis (for rate limiting)
+- Docker (optional, for containerization)
