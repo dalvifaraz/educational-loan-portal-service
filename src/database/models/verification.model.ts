@@ -1,6 +1,5 @@
 import mongoose, { Document, Schema } from 'mongoose';
 import { VerificationEnum } from '../../common/enums/verification-code.enum';
-import { thirtyDaysFromNow } from '../../common/utils/date-time';
 import { generateUniqueCode } from '../../common/utils/uuid';
 
 interface VerificationCodeDocument extends Document {
