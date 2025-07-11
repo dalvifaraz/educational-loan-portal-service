@@ -1,6 +1,6 @@
 import mongoose, { Document, Schema } from 'mongoose';
 import { VerificationEnum } from '../../common/enums/verification-code.enum';
-import { generateUniqueCode } from '../../common/utils/uuid';
+import { generateSixDigitCode } from '../../common/utils/uuid';
 
 interface VerificationCodeDocument extends Document {
   userId: mongoose.Types.ObjectId;
@@ -21,7 +21,7 @@ const verificationCodeSchema = new Schema<VerificationCodeDocument>({
     type: String,
     unique: true,
     required: true,
-    default: generateUniqueCode,
+    default: generateSixDigitCode,
   },
   type: { type: String, required: true },
   createdAt: { type: Date, required: true, default: Date.now },
